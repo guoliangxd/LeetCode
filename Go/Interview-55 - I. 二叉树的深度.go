@@ -11,20 +11,16 @@ package leetcode
  *     Right *TreeNode
  * }
  */
- func maxDepth(root *TreeNode) int {
-    if root == nil {
-        return 0
-    } else {
-        leftLen := maxDepth(root.Left)
-        rightLen := maxDepth(root.Right)
-        if leftLen >= rightLen {
-            return leftLen + 1
-        } else {
-            return rightLen + 1
-        }
-    }
-}type SortBy []Type
-
-func (a SortBy) Len() int           { return len(a) }
-func (a SortBy) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a SortBy) Less(i, j int) bool { return a[i] < a[j] }
+func maxDepth(root *TreeNode) int {
+	if root == nil {
+		return 0
+	} else {
+		leftLen := maxDepth(root.Left)
+		rightLen := maxDepth(root.Right)
+		if leftLen >= rightLen {
+			return leftLen + 1
+		} else {
+			return rightLen + 1
+		}
+	}
+}
