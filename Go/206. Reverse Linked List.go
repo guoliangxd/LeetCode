@@ -18,14 +18,27 @@ Output: 5->4->3->2->1->NULL
  * }
  */
 //迭代解法
- func reverseList(head *ListNode) *ListNode {
-    cur := head
-    var prv *ListNode
-    for cur != nil {
-        temp := cur.Next
-        cur.Next = prv
-        prv = cur
-        cur = temp
-    }
-    return prv
+func reverseList(head *ListNode) *ListNode {
+	cur := head
+	var prv *ListNode
+	for cur != nil {
+		temp := cur.Next
+		cur.Next = prv
+		prv = cur
+		cur = temp
+	}
+	return prv
 }
+
+/*递归解法
+func reverseList(head *ListNode) *ListNode {
+    if head == nil || head.Next == nil {
+        return head
+    } else {
+        prv := reverseList(head)
+        head.Next.Next = head
+        head.Next = nil
+        return prv
+    }
+}
+*/
