@@ -34,17 +34,20 @@ package leetcode
         return rlt;
     }
 
-    private void treeSearch(List<TreeNode> list, TreeNode root, TreeNode target) {
+    private boolean treeSearch(List<TreeNode> list, TreeNode root, TreeNode target) {
+        
         if(root == null) {
-            return;
+            return false;
+        }
+        if(root.val == target.val) {
+            list.add(root);
+            return true;
         }
 
-        if(root.val < target.val) {
-            treeSearch(list, root.right, target);
-        } else if(root.val > target.val){
-            treeSearch(list, root.left, target);
+        boolean rlt = treeSearch(list, root.left, target) || treeSearch(list, root.right, target);
+        if(rlt) {
+            list.add(root);
         }
-
-        list.add(root);
+        return rlt;
     }
 }
